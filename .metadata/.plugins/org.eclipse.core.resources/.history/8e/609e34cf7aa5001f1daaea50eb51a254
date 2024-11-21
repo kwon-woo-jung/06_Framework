@@ -1,0 +1,7 @@
+package edu.kh.demo.model.dto;
+
+public class MemberDTO {
+	
+	private String memberId;
+}
+

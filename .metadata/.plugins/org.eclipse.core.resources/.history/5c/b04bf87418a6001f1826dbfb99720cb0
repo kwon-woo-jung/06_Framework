@@ -1,0 +1,8 @@
+package edu.kh.demo.model.dto;
+
+public class Student {
+
+	private String studentNo;
+	private String name;
+	private String studentNo;
+}
