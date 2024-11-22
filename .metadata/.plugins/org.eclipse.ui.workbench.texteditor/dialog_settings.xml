@@ -3,6 +3,8 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
+		<item value="Configuration"/>
+		<item value="PropertySource"/>
 		<item value="EL"/>
 		<item value="RequestParam"/>
 		<item value="req.getParameter"/>

@@ -1,0 +1,8 @@
+package edu.kh.todo.mode.mapper;
+
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public class TodoMapper {
+
+}
