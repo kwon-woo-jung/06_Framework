@@ -1,8 +1,0 @@
-package edu.kh.demo.model.dto;
-
-public class Student {
-
-	private String studentNo;	// 학생번호
-	private String name;		// 이름
-	private String age;			// 나이
-}

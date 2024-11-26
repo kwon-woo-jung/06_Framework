@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;edu.kh.todo.mode.mapper&apos; to &apos;edu.kh.todo.model.mapper&apos;&#x0D;&#x0A;- Original project: &apos;todoList&apos;&#x0D;&#x0A;- Original element: &apos;todoList/src/main/java/edu.kh.todo.mode.mapper&apos;&#x0D;&#x0A;- Renamed element: &apos;todoList/src/main/java/edu.kh.todo.model.mapper&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;edu.kh.todo.mode.mapper&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;edu.kh.todo.mode.mapper" name="edu.kh.todo.model.mapper" qualified="false" references="true" stamp="1732514695726" textual="false" version="1.0"/>
+</session>

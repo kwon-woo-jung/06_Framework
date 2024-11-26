@@ -52,7 +52,7 @@ import com.zaxxer.hikari.HikariDataSource;
 
 
 @Configuration
-@PropertySource("classpath:/config.properties")
+@PropertySource("classpath:/config.properties") //src/main/resources/config.properties
 public class DBConfig {
 
 	// 필드
@@ -64,6 +64,7 @@ public class DBConfig {
 	private ApplicationContext applicationContext; // application scope 객체 : 즉, 현재 프로젝트 
 	// -> 스프링이 관리하고있는 ApplicationContext 객체를 의존성 주입 받는다
 	// -> 현재 프로젝트의 전반적인 설정과 Bean 관리에 접근할 수 있도록 해줌.
+	// application scope 객체 : 서버가 켜지고 종료될 때 까지 계속 유용한 주입을 받음
 	
 	// 메서드
 	
@@ -79,7 +80,7 @@ public class DBConfig {
 		
 		
 		
-		return new HikariConfig(); // @Bean으로 등록된 객채 
+		return new HikariConfig(); // @Bean으로 등록된 객채 //bean으로 등록 
 	}
 
 	
@@ -101,29 +102,9 @@ public class DBConfig {
 		return dataSource;
 	}
 
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	//////////// Mybatis 설정 ///////////////////
-	// Mybatis : Java 애플리케이션에서 SQL을 더 쉽게 사용할 수 있도록 도와주는 영속성 프레임워크.
-	// 영속성 프레임워크(Persistence Framework)는 애플리케이션의 데이터를
-	// 데이터베이스와 같은 저장소에 영구적으로 저장하고,
-	// 이를 쉽게 조회, 수정, 삭제 등 할 수 있도록 도와주는 프레임워크.
+	// Mybatis :  
 	
-		
 		////////////////////////////Mybatis 설정 추가 ////////////////////////////
 		//SqlSessionFactory : SqlSession을 만드는 객체
 		@Bean
@@ -141,7 +122,8 @@ public class DBConfig {
 		// -> Mybatis 코드 수행 시 mapper.xml 을 읽을 수 있음.
 		
 		//매퍼 파일이 모여있는 경로 지정
-		sessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:/mappers/**.xml"));
+		sessionFactoryBean.setMapperLocations(
+				applicationContext.getResources("classpath:/mappers/**.xml"));
 				// 현재프로젝트 .자원을.  // src/main/resources/mappers 하위의 모든 .xml 파일
 				
 		
@@ -173,7 +155,9 @@ public class DBConfig {
 		// Connection + DBCP + Mybatis + 트랜잭션 처리
 		@Bean
 		public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sessionFactory) {
-		return new SqlSessionTemplate(sessionFactory);
+		return new SqlSessionTemplate(sessionFactory); 
+		
+		// Mybatis를 사용하기 위해선 SQLSESSION이 필요함
 		}
 		//DataSourceTransactionManager : 트랜잭션 매니저
 		@Bean
