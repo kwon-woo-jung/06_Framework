@@ -146,17 +146,21 @@
 
   	
 
+
   
   	<!--  완료 여부 변경  -->
-  	<update id="changeComplete" parameterType="Todo"> 
+  	<update id="todoupdate" parameterType="Todo"> 
   		UPDATE TB_TODO SET
-  		COMPLETE = #{complete}
+  		TODO_TITLE = #{todoTitle},
+  		TODO_CONTENT = #{todoContent}
   		WHERE TODO_NO = ${todoNO}
   	</update>
   	
   
- 
-  	
+ 	<!-- 전체 할 일 개수 조회 -->
+  	<select id="getTotalCount" resultType="_int">
+  		SELECT COUNT(*) FROM TB_TODO
+  	</select>
   	
   	
   	

@@ -24,6 +24,12 @@ import edu.kh.todo.model.dto.Todo;
  * */
 
 
+/**
+ * 
+ */
+/**
+ * 
+ */
 @Mapper
 public interface TodoMapper {
 	
@@ -66,6 +72,26 @@ public interface TodoMapper {
 	 * @return result
 	 */
 	int changeComplete(Todo todo);
+
+	
+	/** 할 일 삭제
+	 * @param todoNo
+	 * @return result
+	 */
+	int todoDelete(int todoNo);
+	
+	
+	/** 할 일 수정
+	 * @param todo
+	 * @return result
+	 */
+	int todoUpdate(Todo todo);
+	
+	
+	/** 전체 할 일 개수 조회
+	 * @return totalCount
+	 */
+	int getTotalCount();
 	
 	
 	
