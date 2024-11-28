@@ -5,7 +5,7 @@
 		패키지 경로를 포함한 전체 이름으로 작성
 	-->
 	
-	
+
 	<!-- 아래 태그는 mapper.xml 파일 생성하자마자 삭제! -->
   <!-- <cache-ref namespace=""/>  -->
   
@@ -30,7 +30,7 @@
   							행 별로 변수/객체 자료형으로 저장 후
   							모아서 List 로 변환	
   							
-  	 <필드명 = 컬럼명 : 조회 결과가 자동으로 객체의 필드에 세팅)
+  	 <필드명 == 컬럼명 : 조회 결과가 자동으로 객체의 필드에 세팅)
   
    -->
   
@@ -58,9 +58,9 @@
 		
   <!-- 완료된 할 일 개수 조회 -->
 	<select id="getCompleteCount" resultType="_int">
-		SELECT COUNT(*)
+  		SELECT COUNT(*) 
 		FROM TB_TODO
-		WHERE TODO_COMPLETE = 1
+		WHERE COMPLETE = 'Y'
 	</select>  
   
   	<!-- 
@@ -138,7 +138,7 @@
   	
   	<!-- 할 일 상세 조회 -->
   	<select id= "todoDetail" parameterType="_int" resultType='Todo'>
-  		SELECT TODO_NO, TODO_TITLE, TODO_CONTE  NT, COMPLETE,
+  		SELECT TODO_NO, TODO_TITLE, TODO_CONTENT, COMPLETE,
 		TO_CHAR(REG_DATE, 'YYYY-MM-DD HH24:MI:SS') REG_DATE
 		FROM TB_TODO
 		WHERE TODO_NO = ${todoNo}

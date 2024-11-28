@@ -21,13 +21,16 @@ import com.zaxxer.hikari.HikariDataSource;
  * - 스프링 설정용 클래스임을 명시 (스프링이 해당 클래스를 설정 정보로 인식하고 사용)
  * 	+ 객체로 생성해서 내부 코드를 서버 실행시 모두 바로 실행
  * 
- * 
  * @PropertySource("경로")
  * - 지정된 경로의 properties 파일 내용을 읽어와 사용
  * - 사용할 properties 파일이 다수일 경우
  * 해당 어노테이션 연속해서 작성 가능
  * 
  * -classpath:/	는 src/main/resources 경로를 의미
+ * 
+ * @Configuration
+ *  @PropertySource("classpath:/config.properties") //src/main/resources/config.properties
+ * 
  * 
  * 
  *	@Autiwured
@@ -50,11 +53,10 @@ import com.zaxxer.hikari.HikariDataSource;
  * 
  * */
 
-
 @Configuration
 @PropertySource("classpath:/config.properties") //src/main/resources/config.properties
-public class DBConfig {
-
+public class DBConfig { // 설정용 클래스
+	
 	// 필드
 	
 	// import org.springframwork.context.ApplicationContext
@@ -63,7 +65,7 @@ public class DBConfig {
 	// (IOC / DI) IOC : 제어반전(객체를 스프링 주도 생성) DI : 의존성 주입
 	private ApplicationContext applicationContext; // application scope 객체 : 즉, 현재 프로젝트 
 	// -> 스프링이 관리하고있는 ApplicationContext 객체를 의존성 주입 받는다
-	// -> 현재 프로젝트의 전반적인 설정과 Bean 관리에 접근할 수 있도록 해줌.
+	// -> 현재	록 해줌.
 	// application scope 객체 : 서버가 켜지고 종료될 때 까지 계속 유용한 주입을 받음
 	
 	// 메서드
@@ -72,7 +74,7 @@ public class DBConfig {
 	
 	@Bean
 	@ConfigurationProperties(prefix = "spring.datasource.hikari")
-	public HikariConfig HikariConfig() {
+	public HikariConfig hikariConfig() { // 반환형이 HikariConfig
 		
 		// -> config.properties 파일에서 읽어온
 		// spring.datasource.hikari로 시작하는 모든 값이
@@ -111,7 +113,7 @@ public class DBConfig {
 		public SqlSessionFactory sessionFactory(DataSource dataSource) throws Exception{
 							// 매개변수로 Data Source를 받아와 DB 연결 정보를 사용할 수 있도록 함
 			
-		// MyBatis의 SQL 세션을 생성하는 역할을 할 객체 생성	
+		// MyBatis의 SQL 세션을 생성하는 역할을 할 객체 생성	공장 설비
 		SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
 		
 		sessionFactoryBean.setDataSource(dataSource);
@@ -123,7 +125,12 @@ public class DBConfig {
 		
 		//매퍼 파일이 모여있는 경로 지정
 		sessionFactoryBean.setMapperLocations(
-				applicationContext.getResources("classpath:/mappers/**.xml"));
+				applicationContext.getResources("classpath:mappers/**.xml"));
+		
+	
+					
+
+		
 				// 현재프로젝트 .자원을.  // src/main/resources/mappers 하위의 모든 .xml 파일
 				
 		
@@ -140,22 +147,36 @@ public class DBConfig {
 		
 		// ex) 원본 edu.kh.todo.model.dto.Todo --> Todo (별칭 등록)
 		sessionFactoryBean.setTypeAliasesPackage("edu.kh.todo");
+		// MyBatis에서는 매핑 파일에서 DTO 클래스를 사용할 때 전체 패키지 경로를 지정해야 합니다.
+		
+		
+		
+		
+		
+		
 		
 		
 		//세팅 3.마이바티스 설정 파일 경로 지정
 		sessionFactoryBean.setConfigLocation(
-				applicationContext.getResource("classpath:/mybatis-config.xml"));
+				applicationContext.getResource // 현재 프로젝트 자원
+				("classpath:/mybatis-config.xml")); // 전역 설정 파일 지정 (MyBatis의 동작을 정의하는 설정 파일)
 		//		현재프로젝트.자원을얻어옴.경로(src/main/resources/mybatis-config.xml)
 		
 		//SqlSession 객체 반환
-		return sessionFactoryBean.getObject();
+		return sessionFactoryBean.getObject(); // sqlSessionFactoryBean을 통해 sqlSession 객체를 반환
+		// MyBatis에서 sqlSession 은 SQL 실행과 매핑의 중심이 되는 객체
 		}
 		
 		// SqlSessionTemplate : 기본 SQL 실행 + 트랜잭션 처리
 		// Connection + DBCP + Mybatis + 트랜잭션 처리
 		@Bean
 		public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sessionFactory) {
-		return new SqlSessionTemplate(sessionFactory); 
+		return new SqlSessionTemplate(sessionFactory);  
+		
+		// SQLSessionTemplate : MyBatis와 Spring 간의 통합에서 사용되는 핵심 클래스.
+		// SQL 실행 및 트랜잭션 관리를 지원합니다
+		
+		
 		
 		// Mybatis를 사용하기 위해선 SQLSESSION이 필요함
 		}
@@ -164,7 +185,10 @@ public class DBConfig {
 		public DataSourceTransactionManager dataSourceTransactionManager(DataSource dataSource) {
 		return new DataSourceTransactionManager(dataSource);
 		}
-	
+		// DataSourceTransactionManager : 
+//		Spring에서 트랜잭션을 관리하는 객체.
+//		여기서 MyBatis의 sqlSession과 연동되어 데이터베이스 트랜잭션을 처리합니다.
+//		Datasource는 JDBC 연결 풀 객체로, 데이터베이스와 연결을 관리합니다.
 	
 	
 	

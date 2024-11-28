@@ -9,7 +9,7 @@ public interface TodoService {
 	/** (TEST) todoNo 가 1인 할 일 제목 조회
 	 * @return title
 	 */
-	String testTitle();
+	String testTitle(); // 크리에이트 메서드
 	
 	/** 할일 목록 + 완료된 할 일 갯수 조회
 	 * @return map
@@ -42,6 +42,10 @@ public interface TodoService {
 	 * @return
 	 */
 	int getTotalCount();
+
+	int getCompleteCount();
+
+	int todoUpdate(Todo todo);
 }
 
 

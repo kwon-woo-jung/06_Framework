@@ -66,7 +66,6 @@ public class AjaxController {
 	@GetMapping("completeCount")
 	public int getCompleteCount() {
 		return service.getCompleteCount();
-		
 	}
 	
 	
