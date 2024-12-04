@@ -25,6 +25,7 @@
         <!-- data-*  속성
           - 데이터에 대한 확장성을 고려하여 설계된 속성 
           - js에서 요소.dataset 을 이용해 해당 값을 얻어와 사용할 수 있음
+          
         -->
         <button
           th:data-todo-no="${todo.todoNo}"
@@ -36,7 +37,7 @@
     </tr>
     <tr>
       <th>내용</th>
-      <td class="todo-content" th:text="${todo.todoContent}">할 일 내용</td>
+      <td class="todo-content" th:text="${todo.todoDetail}">할 일 내용</td>
     </tr>
   </table>
 
@@ -48,6 +49,8 @@
       조각의 경로는 forward 하듯이 경로 작성 (접두사, 접미사 생략)-->
 
       <th:block th:replace="~{common/footer}"></th:block>
+
+      
 
 
     <!-- spring 에서 정적자원 (css,js.. )--> 요청 시 static 폴더 기준으로 경로 작성!

@@ -82,7 +82,7 @@ public class DBConfig { // 설정용 클래스
 		
 		
 		
-		return new HikariConfig(); // @Bean으로 등록된 객채 //bean으로 등록 
+		return new HikariConfig(); // @Bean으로 등록된 객채 //bean으로 등록 //개발자가 직접 만든 객체 (new)
 	}
 
 	
@@ -99,13 +99,14 @@ public class DBConfig { // 설정용 클래스
 		// 1) DB 연결 정보 제공 (url, username, password)
 		// 2) Connection pool 관리
 		// 3) 트랜잭션 관리
-		
-		
 		return dataSource;
 	}
 
 	//////////// Mybatis 설정 ///////////////////
-	// Mybatis :  
+	// Mybatis :  Java 애플리케이션에서 SQL을 더 쉽게 사용할 수 있도록 도와주는 역할
+	// 영속성 프레임워크(Persistence Framework)는 애플리케이션의 데이터를
+	// 데이터베이스와 같은 저장소에 양구적으로 저장하고,
+	// 이를 쉽게 조회, 수정, 삭제 등 할 수 있도록 도와주는 프레임워크.
 	
 		////////////////////////////Mybatis 설정 추가 ////////////////////////////
 		//SqlSessionFactory : SqlSession을 만드는 객체

@@ -50,6 +50,8 @@ import edu.kh.todo.model.dto.Todo;
 @Mapper
 public interface TodoMapper {
 	
+	// @Mapper라는 어노테이션이 붙어있는 interface를 내부적으로 상속받는 객체는 마이바티스 객체
+	
 	/* Mapper의 메서드명 == mapper.xml 파일 내 태그의 id
 	 * 
 	 * (메서드명과 id가 같은 태그가 서로 연결된다)
@@ -110,6 +112,11 @@ public interface TodoMapper {
 	 */
 	int getTotalCount();
 	
+	
+	/** 할 일 목록 조회
+	 * @return totalCount
+	 */
+	List<Todo> selectList();
 	
 	
 }

@@ -20,10 +20,10 @@ public class TodoController {
 	private TodoService service;
 	
 	@PostMapping("add") // "/todo/add" POST 방식 요청 매핑
-	public String addTodo(
+	public String addTodo(	
 	@RequestParam("todoTitle") String todoTitle,
-	@RequestParam("todoContent") String todoContent,
-	
+	@RequestParam("todoDetail") String todoDetail,
+
 	RedirectAttributes ra
 	
 	) {
@@ -39,7 +39,7 @@ public class TodoController {
 		
 		
 	// 서비스 메서드 호출 후 결과 반환 받기
-	int result = service.addTodo(todoTitle, todoContent);
+	int result = service.addTodo(todoTitle, todoDetail);
 		
 	// 삽입 결과에 따라 message 값 지정
 	String message = null;
@@ -60,7 +60,6 @@ public class TodoController {
 	public String todoDetail(@RequestParam("todoNo") int todoNo, 
 						Model model,
 						RedirectAttributes ra) {
-	
 		Todo todo = service.todoDetail(todoNo); 
 		
 		String path = null;
@@ -78,14 +77,15 @@ public class TodoController {
 		model.addAttribute("todo", todo); // request scope 값 세팅
 		
 		} else {
+		
+		// 조회 결과가 있을 경우 detail.html forward
 		// 조회 결과가 없을 경우 메인페이지로 리다이렉트(message : 해당 할 일이 존재하지 않습니다)
 		
 		
 		
 			path = "redirect:/";
 		
-			// RedirectAttributes :
-			// 리다이렉트 시 데이터를 session scope로 잠시 이동 시킬 수 있는
+			// RedirectAttributes : 리다이렉트 시 데이터를 session scope로 잠시 이동 시킬 수 있는
 			// 1회성 값 전달용 객체
 			ra.addFlashAttribute("message", "해당 할 일이 존재하지 않습니다.");
 		}
@@ -104,6 +104,7 @@ public class TodoController {
 	 */
 	@GetMapping("changeComplete")
 	public String changeComplete(Todo todo, RedirectAttributes ra) {
+
 		
 		// 변경 서비스 호출
 		int result = service.changeComplete(todo);

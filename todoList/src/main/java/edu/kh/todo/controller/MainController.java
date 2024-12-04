@@ -54,17 +54,17 @@ public class MainController {
 		// + 완료된 할 일 갯수
 		
 		
-		
-		
-		
-		
-		
 		// Service 메서드 호출 후 결과 반환 받기
 		Map<String, Object> map = service.selectAll();
 		
 		// map에 담김 내용 추출
 		List<Todo> todoList = (List<Todo>)map.get("todoList");
 		int completeCount = (int)map.get("completeCount");
+		
+		
+		
+		
+		
 		
 		// Model을 이용해서 조회 결과 request scope에 추가
 		model.addAttribute("todoList", todoList);

@@ -27,7 +27,7 @@
     </div>
 
     <div>
-      <textarea id="todoContent" 
+      <textarea id="todoDetail" 
         cols="50" rows="5" placeholder="상세 내용"></textarea>
     </div>
 
@@ -57,7 +57,17 @@
       <th>등록 날짜</th>
     </thead>
 
+    <td>
+      <a href="/ajax/detail?todoNo=2"></a>
+    </td>
+
+
     <tbody id="tbody">
+      <tr>
+        <td>
+          <a href="/ajax/detail?todoNo=2"></a>
+        </td>
+      </tr>
       
     </tbody>
 
@@ -121,6 +131,20 @@
     </div>
 
   </div>
+
+  <tr th:each="todo, iterStat : ${todoList}" th:object="${todo}">
+    <!-- <p th:text="${iterStat}"></p> -->
+     <td th:text="${iterStat.count}">행 번호</td>
+     <td th:text="*{todoNo}">할 일 번호</td>
+     <td>
+      <a th:href="@{/todo/detail(todoNo=*{todoNo})}"
+        th:text="*{todoTitle}">할 일 제목</a>
+     </td>
+     <td th:text="{complete}">완료 여부(Y/N)</td>
+     <td th:text="*{regDate}">등록일</td>
+     </tr>
+
+  </tr>
 
 
 
