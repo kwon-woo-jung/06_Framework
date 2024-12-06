@@ -23,7 +23,7 @@
     </div>
 	
     <div>
-      <textarea name="todoContent" cols="50" rows="5" placeholder="상세 내용"></textarea>
+      <textarea name="todoDetail" cols="50" rows="5" placeholder="상세 내용"></textarea>
     </div>
 	
     <button>추가 하기</button>
@@ -69,7 +69,7 @@
 
             <!-- "@{/todo/detail(todoNo=*{todoNo})}"-->
         </td>
-        <td th:text="*{complete}">완료 여부(Y/N)</td>
+        <td th:text="*{todoComplete}">완료 여부(Y/N)</td>
         <td th:text="*{regDate}">등록일</td>
       </tr>
     </tbody>

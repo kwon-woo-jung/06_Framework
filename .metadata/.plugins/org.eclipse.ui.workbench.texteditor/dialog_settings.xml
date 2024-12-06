@@ -3,45 +3,49 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
-		<item value="COMPLETE"/>
-		<item value="TODO_NO, TODO_TITLE,"/>
-		<item value="TODO_NO"/>
-		<item value="DAO"/>
-		<item value="todoDAO"/>
-		<item value="TodoService"/>
-		<item value="Model"/>
-		<item value="@Mappe"/>
-		<item value="@MapperScan"/>
-		<item value="namespace"/>
-		<item value="ma"/>
-		<item value="mapper"/>
-		<item value="mapper.xml"/>
-		<item value="SqlSessionTemplate"/>
-		<item value="getRe"/>
+		<item value="@RequestMapping"/>
+		<item value="common/main"/>
+		<item value="return"/>
+		<item value="main"/>
+		<item value="testTitle"/>
+		<item value="GET"/>
+		<item value="fetch"/>
+		<item value="getTotal"/>
+		<item value="@Mapper"/>
+		<item value="mybatis-config.xml"/>
+		<item value="Mybatis"/>
+		<item value="return new HikariConfig();"/>
+		<item value="@Bean"/>
+		<item value="prefix"/>
+		<item value="application scope"/>
 	</list>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Ma"/>
+		<item key="selection" value="&quot;complete&quot;"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="&quot;complete&quot;"/>
+			<item value="complete"/>
+			<item value="TodoNo"/>
+			<item value="TODO"/>
+			<item value="getTotalCount"/>
+			<item value="reloadBtn"/>
 			<item value="ma"/>
 			<item value="Ma"/>
 			<item value="mapper"/>
 			<item value="06"/>
 			<item value="cannot be"/>
 			<item value="EMPTY"/>
-			<item value="error"/>
-			<item value="홍길동"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="746"/>
-		<item key="DIALOG_Y_ORIGIN" value="257"/>
+		<item key="DIALOG_X_ORIGIN" value="1227"/>
+		<item key="DIALOG_Y_ORIGIN" value="141"/>
 		<item key="DIALOG_WIDTH" value="322"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

@@ -29,7 +29,7 @@
         -->
         <button
           th:data-todo-no="${todo.todoNo}"
-          th:text="${todo.complete}"
+          th:text="${todo.todoComplete}"
           type="button"
           class="complete-btn"
         >완료 여부</button>
@@ -37,7 +37,7 @@
     </tr>
     <tr>
       <th>내용</th>
-      <td class="todo-content" th:text="${todo.todoDetail}">할 일 내용</td>
+      <td class="todoDetail" th:text="${todo.todoDetail}">할 일 내용</td>
     </tr>
   </table>
 

@@ -138,23 +138,28 @@
   	
   	<!-- 할 일 상세 조회 -->
   	<select id= "todoDetail" parameterType="_int" resultType='Todo'>
-  		SELECT TODO_NO, TODO_TITLE, TODO_COMPLETE,
+  		SELECT TODO_NO, TODO_TITLE, TODO_DETAIL, TODO_COMPLETE,
 		TO_CHAR(REG_DATE, 'YYYY-MM-DD HH24:MI:SS') REG_DATE
 		FROM TB_TODO
 		WHERE TODO_NO = ${todoNo}
 		
   	</select>
 
-  	
+  	<!-- 할 일 수정 -->
+  	<update id="todoUpdate" parameterType="Todo">
+  	UPDATE TB_TODO SET
+  	TODO_TITLE = #{todoTitle},
+  	TODO_DETAIL = #{todoDetail}
+  	WHERE TODO_NO = #{todoNo}
+  	</update>
 
 
   
   	<!--  완료 여부 변경  -->
   	<update id="changeComplete" parameterType="Todo"> 
   		UPDATE TB_TODO SET
-  		TODO_TITLE = #{todoTitle},
-  		TODO_CONTENT = #{todoContent}
-  		WHERE TODO_NO = ${todoNO}
+  		TODO_COMPLETE = #{todoComplete}
+  		WHERE TODO_NO = ${todoNo}
   	</update>
   	
   
@@ -164,9 +169,11 @@
   	</select>
   	
   	
-  	
-  	
-  	
+  	<!-- 할 일 삭제 -->
+  	<delete id="todoDelete" parameterType="_int">
+  		DELETE FROM TB_TODO
+  		WHERE TODO_NO=#{todoNo}
+	</delete>
   	
   	
   	

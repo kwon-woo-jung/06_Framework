@@ -115,16 +115,6 @@ public class TodoServiceImpl implements TodoService {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	// 전체 할 일 개수 조회
 	@Override
 	public int getTotalCount() {
@@ -143,6 +133,18 @@ public class TodoServiceImpl implements TodoService {
 	@Override
 	public List<Todo> selectList() {
 		return mapper.selectAll();
+	}
+
+
+
+
+
+
+
+	@Override
+	public int todoDelete(int todoNo) {
+		// TODO Auto-generated method stub
+		return mapper.todoDelete(todoNo);
 	}
 	
 	

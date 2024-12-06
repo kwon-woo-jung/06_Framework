@@ -128,18 +128,15 @@ SELECT TODO_NO, TODO_TITLE, TODO_COMPLETE,
 	
 SELECT COUNT(*)
 		FROM TB_TODO
-		WHERE TODO_COMPLETE = 'Y';
-	
-	
-	
-	INSERT INTO TB_TODO
-		VALUES(SEQ_TODO_NO.NEXTVAL, #{todoTitle}, #{todoContent}, DEFAULT
-		
+		WHERE COMPLETE = 'Y';
 	
 	
 	
 	
-
+	
+	
+	
+	
 	
 	
 	

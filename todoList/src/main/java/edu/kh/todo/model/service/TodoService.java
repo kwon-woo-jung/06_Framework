@@ -52,13 +52,20 @@ public interface TodoService {
 	int getCompleteCount();
 	
 	
-	
+	/** 할 일 수정
+	 * @param
+	 * @return result
+	 * */
 	int todoUpdate(Todo todo);
 
 	/** 할 일 목록 조회
 	 * @return
 	 */
 	List<Todo> selectList();
+
+	
+	
+	int todoDelete(int todoNo);
 	
 	
 }
